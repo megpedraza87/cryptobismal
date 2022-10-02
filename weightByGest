@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Oct  2 05:19:18 2022
+
+@author: aidanquandt
+"""
+
+import csv
+
+f = open("every-20-rows-natality.csv")
+reader = csv.reader(f)
+
+def print_indexes():
+    print([{col: index} for index, col in enumerate(columns)])
+    
+columns = next(reader)
+#print_indexes()
+#print(next(reader))
+
+i = 0
+for s in reader:
+    print(s[0], s[5])
+    i += 1
+    if(i==20):
+        break
+
+f.close()
