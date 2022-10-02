@@ -1,0 +1,17 @@
+Created on Sun Oct  2 01:43:57 2022
+
+@author: meime
+"""
+import pandas as pd
+df = pd.read_csv("every-20-rows-natality.csv")
+print(df.head())
+
+txdf = df[df["State"] == "Texas"]
+print(txdf.head())
+
+print(txdf["ID_SEX"].value_counts().sort_index()*20)
+print(txdf["AM_GESTATION"].value_counts().sort_index()*20)
+
+import matplotlib.pyplot as plt
+plt.bar(txdf["ID_SEX"].value_counts().index,txdf["ID_SEX"].value_counts())
+plt.xticks(rotation = 90)
